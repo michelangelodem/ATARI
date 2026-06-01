@@ -1,7 +1,7 @@
 from CardEffects.card_effect import CardEffect
 from card_repository import CardRepository
 from card import Card
-from typing import Iterable
+
 class CardFactory:
     def __init__(self, repository: CardRepository):
         self.repository = repository
@@ -22,6 +22,10 @@ class CardFactory:
             effect=effect
         )
     
-    def create_deck(self, names: list) -> Iterable[Card]:
-        for name in names:
-            yield self.create_card(name)
+    def create_match_deck(self, card_dict: dict[str, int]) -> list[Card]:
+        deck = []
+        for name in card_dict.keys():
+            count = card_dict[name]
+            for _ in range(count):
+                deck.append(self.create_card(name))
+        return deck

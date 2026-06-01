@@ -1,4 +1,5 @@
 import json
+from typing import List
 import os    
 
 class AccountManager:
@@ -13,5 +14,5 @@ class AccountManager:
         with open(self.accounts_file, 'r') as f:
             return json.load(f)
         
-    def get_decklist_for_account(self, account_name: str):
+    def get_decklist_for_account(self, account_name: str) -> List[dict[str, int]]:
         return self.accounts_data.get(account_name, {}).get('DeckList', [])

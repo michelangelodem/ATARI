@@ -1,12 +1,14 @@
 from typing import List
 from card import Card
 from account import Account
-
+from card_factory import CardFactory
+ 
 class Player:
-    def __init__(self, account: Account, HP_MAX_SCORE: int):
+    def __init__(self, factory: CardFactory, account: Account, HP_MAX_SCORE: int):
         self.account = account
         self.score = HP_MAX_SCORE
         self.HP_UPPER_LIMIT = 10 * HP_MAX_SCORE
+        self.factory = factory
 
         self.deck: List[Card] = []
         self.hand: List[Card] = []
@@ -29,8 +31,11 @@ class Player:
             self.score = self.HP_UPPER_LIMIT
 
     def choose_deck(self, deck_index: int):
-        if 0 <= deck_index < len(self.account.get_decklist()):
-            self.deck = self.account.get_decklist()[deck_index]
+        decklists : List[dict[str, int]] = self.account.get_decklist()
+        
+        if 0 <= deck_index < len(decklists):
+            chosen_dict = decklists[deck_index]
+            self.deck = self.factory.create_match_deck(chosen_dict)
         else:
             raise ValueError("Invalid deck index")
 
