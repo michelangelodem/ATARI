@@ -1,0 +1,36 @@
+version = 1
+revision = 3
+requires-python = ">=3.14"
+
+[[package]]
+name = "atari"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "colorama" },
+    { name = "windows-curses" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "colorama", specifier = ">=0.4.6" },
+    { name = "windows-curses", specifier = ">=2.4.2" },
+]
+
+[[package]]
+name = "colorama"
+version = "0.4.6"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44", size = 27697, upload-time = "2022-10-25T02:36:22.414Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6", size = 25335, upload-time = "2022-10-25T02:36:20.889Z" },
+]
+
+[[package]]
+name = "windows-curses"
+version = "2.4.2"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d2/22/f90c7d1d83464eb63345802f33e8de41bd732521d9a60a69ad985c8faa90/windows_curses-2.4.2-cp314-cp314-win32.whl", hash = "sha256:a970bf067b3126251423b4da051ef8c1c77acf6294ec96a7d6de7f6b9e5c27a0", size = 77028, upload-time = "2026-03-31T12:44:42.611Z" },
+    { url = "https://files.pythonhosted.org/packages/6f/6a/1f8754de746474a049a841e139b443b250a96908d6913ccf2db9a4303584/windows_curses-2.4.2-cp314-cp314-win_amd64.whl", hash = "sha256:6c22cb0310500dfbfe54c76354e37070e300d5473596d48ac4f9c65b2d578b6f", size = 86361, upload-time = "2026-03-31T12:44:43.893Z" },
+]
