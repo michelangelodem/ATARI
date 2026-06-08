@@ -1,19 +1,20 @@
-from ATARI.CardHandler.CardEffects.card_effect import CardEffect
+from ATARI.CardHandler.CardEffects.effect import Effect
+from ATARI.CardHandler.CardEffects.effect_parser import parse_effect
 from ATARI.CardHandler.card_repository import CardRepository
 from ATARI.CardHandler.card import Card
 
 class CardFactory:
     def __init__(self, repository: CardRepository):
         self.repository = repository
-        
+
     def create_card(self, name: str) -> Card:
         card_data = self.repository.find_card_by_name(name)
         if not card_data:
             raise ValueError(f"Card with name '{name}' not found in repository.")
         
-        effect = None
+        effect : list[Effect] = None
         if 'effect' in card_data:
-            effect = CardEffect(card_data['effect']['description'])
+            effect = parse_effect(card_data['effect'])
         
         return Card(
             name=card_data['name'],

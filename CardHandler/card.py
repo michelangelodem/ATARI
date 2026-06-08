@@ -1,13 +1,13 @@
-from typing import Optional
-from ATARI.CardHandler.CardEffects.card_effect import CardEffect
-from typing import List
+from typing import List, Optional
+
+from ATARI.CardHandler.CardEffects.effect import Effect
 
 class Card:
-    def __init__(self, name: str, attack: int, defense: int, effect: Optional[List[CardEffect]] = None):
+    def __init__(self, name: str, attack: int, defense: int, effect: Optional[List[Effect]] = None):
         self.name = name
         self.attack = attack
         self.defense = defense
-        self.effect : List[CardEffect] = effect or []
+        self.effect = effect
         self.is_summoned = False
         self._summon()
 
@@ -24,7 +24,7 @@ class Card:
         print("Took action with card:", self)
         if self.effect:
             for effect in self.effect:
-                effect.trigger(game_state, user_player, opponent_player)
+                effect.activate(game_state, user_player, opponent_player)
 
     def take_damage(self, damage: int):
         self.defense -= damage
