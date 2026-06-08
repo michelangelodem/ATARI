@@ -15,4 +15,4 @@ class AccountManager:
             return json.load(f)
         
     def get_decklist_for_account(self, account_name: str) -> List[dict[str, int]]:
-        return self.accounts_data.get(account_name, {}).get('DeckList', [])
+        return self.accounts_data.get(account_name, {}).get('decklist', [])

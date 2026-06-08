@@ -1,7 +1,7 @@
 from typing import List
-from card import Card
-from account import Account
-from card_factory import CardFactory
+from ATARI.CardHandler.card import Card
+from ATARI.AccountsHandler.account import Account
+from ATARI.CardHandler.card_factory import CardFactory
  
 class Player:
     def __init__(self, factory: CardFactory, account: Account, HP_MAX_SCORE: int):

@@ -1,6 +1,6 @@
-from CardEffects.card_effect import CardEffect
-from card_repository import CardRepository
-from card import Card
+from ATARI.CardHandler.CardEffects.card_effect import CardEffect
+from ATARI.CardHandler.card_repository import CardRepository
+from ATARI.CardHandler.card import Card
 
 class CardFactory:
     def __init__(self, repository: CardRepository):

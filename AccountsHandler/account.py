@@ -1,6 +1,5 @@
-from card import Card
 from typing import List
-from account_manager import AccountManager
+from ATARI.AccountsHandler.account_manager import AccountManager
 
 class Account:
     def __init__(self, name: str, password: str, account_manager: AccountManager):

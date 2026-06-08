@@ -1,4 +1,5 @@
 import json
+from typing import List
 
 class CardRepository:
     def __init__(self, file_path):
